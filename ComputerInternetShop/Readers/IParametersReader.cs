@@ -2,8 +2,8 @@ using System.Collections.Generic;
 
 namespace ComputerInternetShop.Readers
 {
-    public interface IParametersReader<T>
+    public interface IParametersReader
     {
-        IReadOnlyDictionary<string, string> GetUserParameters();
+        IReadOnlyCollection<IReadOnlyDictionary<string, string>> GetProductsParameters();
     }
 }

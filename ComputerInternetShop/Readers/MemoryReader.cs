@@ -1,36 +1,48 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using ComputerInternetShop.Products;
 
 namespace ComputerInternetShop.Readers
 {
-    public class MemoryReader : IParametersReader<Memory>
+    public class MemoryReader : IParametersReader
     {
-        private readonly Dictionary<string, string> _parameters = new ();
-
-        public IReadOnlyDictionary<string, string> GetUserParameters()
-        {
-            InitializeParameters();
-            return _parameters;
-        }
+        private const string PathToFile = "/Users/denys/RiderProjects/ComputerInternetShop/ComputerInternetShop/Resources/Memories.txt";
+        private readonly List<Dictionary<string, string>> _parameters = new ();
 
         private void InitializeParameters()
         {
-            Console.Clear();
-            Console.Write("Введіть Ім'я: ");
-            _parameters.Add("Name", Console.ReadLine());
-            Console.Write("Введіть ціну: ");
-            _parameters.Add("Price", Console.ReadLine());
-            Console.Write("Введіть об'єм: ");
-            _parameters.Add("Capacity", Console.ReadLine());
-            Console.Write("Введіть тип: ");
-            _parameters.Add("Type", Console.ReadLine());
-            Console.Write("Введіть частоту: ");
-            _parameters.Add("Frequency", Console.ReadLine());
-            Console.Write("Введіть кількість планок: ");
-            _parameters.Add("ModuleCount", Console.ReadLine());
-            Console.Clear();
-            Console.WriteLine("Продукт створено!");
+            using StreamReader sr = new StreamReader(PathToFile);
+            string line;
+            Dictionary<string, string> itemData = new Dictionary<string, string>();
+
+            while ((line = sr.ReadLine()) != null)
+            {
+                if (string.IsNullOrWhiteSpace(line))
+                {
+                    _parameters.Add(itemData);
+                    itemData = new Dictionary<string, string>();
+                }
+                else
+                {
+                    string[] parts = line.Split(':');
+
+                    if (parts.Length == 2)
+                    {
+                        string key = parts[0].Trim();
+                        string value = parts[1].Trim();
+
+                        itemData.Add(key, value);
+                    }
+                }
+            }
+            _parameters.Add(itemData);
+        }
+
+        public IReadOnlyCollection<IReadOnlyDictionary<string, string>> GetProductsParameters()
+        {
+            InitializeParameters();
+            return _parameters;        
         }
     }
 }

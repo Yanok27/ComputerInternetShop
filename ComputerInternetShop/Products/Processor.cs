@@ -1,6 +1,6 @@
 namespace ComputerInternetShop.Products
 {
-    public class Processor : Product
+    public class Processor : Product, ISocketType
     {
         public string SocketType { get;  }
         public int CoreCount { get;  }

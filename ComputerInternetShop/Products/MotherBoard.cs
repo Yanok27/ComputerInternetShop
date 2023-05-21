@@ -1,6 +1,6 @@
 namespace ComputerInternetShop.Products
 {
-    public class MotherBoard : Product
+    public class MotherBoard : Product , ISocketType, IMemoryType
     {
         public string SocketType { get; }
         public string Chipset { get; }
@@ -29,5 +29,15 @@ namespace ComputerInternetShop.Products
                    $"\n\tMemory Type: {MemoryType}" +
                    $"\n\tBus speed: {BusSpeed}";
         }
+    }
+
+    public interface ISocketType
+    { 
+        string SocketType { get; }
+    }
+
+    public interface IMemoryType
+    {
+        string MemoryType { get; }
     }
 }

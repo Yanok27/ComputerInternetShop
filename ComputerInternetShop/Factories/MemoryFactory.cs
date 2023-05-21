@@ -7,15 +7,25 @@ namespace ComputerInternetShop.Factories
 {
     public class MemoryFactory : IProductFactory
     {
-        private readonly IParametersReader<Memory> _reader = new MemoryReader();
         private IReadOnlyDictionary<string, string> _parameters;
-        
-        public Product CreateProduct()
-        {
-            _parameters = _reader.GetUserParameters();
-            return new Memory(DataKey.ItemNumber, GetName(), GetPrice(), GetCapacity(), GetTypeMemory(), GetFrequency(), GetModuleCount());
-        }
 
+        public Product CreateProduct(IReadOnlyDictionary<string, string> parameters)
+        {
+            _parameters = parameters;
+            return new Memory(GetItemNumber(), GetName(), GetPrice(), GetCapacity(), GetTypeMemory(), GetFrequency(), GetModuleCount());
+        }
+        
+        private class DataKey
+        {
+            internal const string ItemNumberKey = "ItemNumber";
+            internal const string NameKey = "Name";
+            internal const string PriceKey = "Price";
+            internal const string CapacityKey = "Capacity";
+            internal const string TypeKey = "Type";
+            internal const string FrequencyKey = "Frequency";
+            internal const string ModuleCountKey = "ModuleCount";
+        }
+        
         private int GetModuleCount() =>
             _parameters.ContainsKey(DataKey.ModuleCountKey) ? Convert.ToInt32(_parameters[DataKey.ModuleCountKey]) : 0;
 
@@ -34,15 +44,7 @@ namespace ComputerInternetShop.Factories
         private string GetName() => 
             _parameters.ContainsKey(DataKey.NameKey) ? _parameters[DataKey.NameKey] : string.Empty;
         
-        private static class DataKey
-        {
-            internal const int ItemNumber = 3;
-            internal const string NameKey = "Name";
-            internal const string PriceKey = "Price";
-            internal const string CapacityKey = "Capacity";
-            internal const string TypeKey = "Type";
-            internal const string FrequencyKey = "Frequency";
-            internal const string ModuleCountKey = "ModuleCount";
-        }
+        private int GetItemNumber() =>
+            _parameters.ContainsKey(DataKey.ItemNumberKey) ? Convert.ToInt32(_parameters[DataKey.ItemNumberKey]) : 0;
     }
 }

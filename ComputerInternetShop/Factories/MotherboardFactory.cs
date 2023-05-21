@@ -7,15 +7,17 @@ namespace ComputerInternetShop.Factories
 {
     public class MotherboardFactory : IProductFactory
     {
-        private readonly IParametersReader<MotherBoard> _reader = new MotherBoardReader();
         private IReadOnlyDictionary<string, string> _parameters;
-
-        public Product CreateProduct()
+        
+        public Product CreateProduct(IReadOnlyDictionary<string, string> parameters)
         {
-            _parameters = _reader.GetUserParameters();
-            return new MotherBoard(DataKey.ItemNumber, GetName(), GetPrice(), GetSocketType(), GetChipset(), GetProcessorCount(), GetMemoryType(), GetBusSpeed());
+            _parameters = parameters;
+            return new MotherBoard(GetItemNumber(), GetName(), GetPrice(), GetSocketType(), GetChipset(), GetProcessorCount(), GetMemoryType(), GetBusSpeed());
         }
 
+        private int GetItemNumber() =>
+            _parameters.ContainsKey(DataKey.ItemNumberKey) ? Convert.ToInt32(_parameters[DataKey.ItemNumberKey]) : 0;
+        
         private int GetBusSpeed() => 
             _parameters.ContainsKey(DataKey.BusSpeedKey) ? Convert.ToInt32(_parameters[DataKey.BusSpeedKey]) : 0;
 
@@ -39,7 +41,7 @@ namespace ComputerInternetShop.Factories
 
         private static class DataKey
         {
-            internal const int ItemNumber = 0;
+            internal const string ItemNumberKey = "ItemNumber";
             internal const string NameKey = "Name";
             internal const string PriceKey = "Price";
             internal const string SocketTypeKey = "SocketType";

@@ -7,13 +7,12 @@ namespace ComputerInternetShop.Factories
 {
     public class ProcessorFactory : IProductFactory
     {
-        private readonly IParametersReader<Processor> _reader = new ProcessorReader();
         private IReadOnlyDictionary<string, string> _parameters;
 
-        public Product CreateProduct()
+        public Product CreateProduct(IReadOnlyDictionary<string, string> parameters)
         {
-            _parameters = _reader.GetUserParameters();
-            return new Processor(DataKey.ItemNumber, GetName(), GetPrice(), GetSocketType(), GetCoreCount(), GetClockSpeed());
+            _parameters = parameters;
+            return new Processor(GetItemNumber(), GetName(), GetPrice(), GetSocketType(), GetCoreCount(), GetClockSpeed());
         }
 
         private double GetClockSpeed() =>
@@ -31,9 +30,12 @@ namespace ComputerInternetShop.Factories
         private string GetName() => 
             _parameters.ContainsKey(DataKey.NameKey) ? _parameters[DataKey.NameKey] : string.Empty;
         
+        private int GetItemNumber() =>
+            _parameters.ContainsKey(DataKey.ItemNumberKey) ? Convert.ToInt32(_parameters[DataKey.ItemNumberKey]) : 0;
+        
         private static class DataKey
         {
-            internal const int ItemNumber = 1;
+            internal const string ItemNumberKey = "ItemNumber";
             internal const string NameKey = "Name";
             internal const string PriceKey = "Price";
             internal const string SocketTypeKey = "SocketType";

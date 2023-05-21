@@ -1,16 +1,16 @@
 namespace ComputerInternetShop.Products
 {
-    public class Memory : Product
+    public class Memory : Product, IMemoryType, ICapacity
     {
         public int Capacity { get; }
-        public string Type { get;  }
+        public string MemoryType { get;  }
         public int Frequency { get;  }
         public int ModuleCount { get;  }
         
-        public Memory(int itemNumber, string name, double price, int capacity, string type, int frequency, int moduleCount) : base(itemNumber, name, price)
+        public Memory(int itemNumber, string name, double price, int capacity, string memoryType, int frequency, int moduleCount) : base(itemNumber, name, price)
         {
             Capacity = capacity;
-            Type = type;
+            MemoryType = memoryType;
             Frequency = frequency;
             ModuleCount = moduleCount;
         }
@@ -22,7 +22,7 @@ namespace ComputerInternetShop.Products
                    $"\n\tName: {Name}" +
                    $"\n\tPrice: {Price}" +
                    $"\n\tCapacity: {Capacity}" +
-                   $"\n\tType: {Type}" +
+                   $"\n\tType: {MemoryType}" +
                    $"\n\tFrequency: {Frequency}" +
                    $"\n\tModuleCount: {ModuleCount}";
         }

@@ -1,6 +1,6 @@
 namespace ComputerInternetShop.Products
 {
-    public class HardDrive : Product
+    public class HardDrive : Product, ICapacity
     {
         public int Capacity { get;  }
         public int Speed { get;  }
@@ -23,5 +23,10 @@ namespace ComputerInternetShop.Products
                    $"\n\tSpeed: {Speed}" +
                    $"InterfaceOfConnect: {InterfaceOfConnect}";
         }
+    }
+
+    public interface ICapacity
+    {
+        int Capacity { get;  }
     }
 }
