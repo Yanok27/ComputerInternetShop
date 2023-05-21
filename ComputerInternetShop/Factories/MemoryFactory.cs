@@ -21,7 +21,7 @@ namespace ComputerInternetShop.Factories
             internal const string NameKey = "Name";
             internal const string PriceKey = "Price";
             internal const string CapacityKey = "Capacity";
-            internal const string TypeKey = "Type";
+            internal const string TypeKey = "MemoryType";
             internal const string FrequencyKey = "Frequency";
             internal const string ModuleCountKey = "ModuleCount";
         }

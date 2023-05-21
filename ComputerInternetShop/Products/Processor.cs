@@ -15,7 +15,7 @@ namespace ComputerInternetShop.Products
         
         public override string GetInformation()
         {
-            return $"MotherBoard: " +
+            return $"Processor: " +
                    $"\n\tItem Number: {ItemNumber}" +
                    $"\n\tName: {Name}" +
                    $"\n\tPrice: {Price}" +

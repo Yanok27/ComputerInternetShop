@@ -37,7 +37,7 @@ namespace ComputerInternetShop.Presenters
             _actionMethods = new Dictionary<ActionType, Func<IEnumerable<Product>>>()
             {
                 {
-                    ActionType.FindByActionNumber,
+                    ActionType.FindByItemNumber,
                     () => _productSearcher.FindProductByItemNumber(_menuView.GetItemNumber())
                 },
                 {
@@ -83,7 +83,7 @@ namespace ComputerInternetShop.Presenters
                 },
                 {
                     ActionType.FindProductBySpeed, 
-                    () => _productSearcher.FindProductBySpeed(_menuView.GetBusSpeed())
+                    () => _productSearcher.FindProductBySpeed(_menuView.GetSpeed())
                 },
                 {
                     ActionType.FindProductByInterfaceOfConnect,

@@ -3,7 +3,7 @@ namespace ComputerInternetShop.View
     public enum ActionType
     {
         None = -1,
-        FindByActionNumber = 1,
+        FindByItemNumber = 1,
         FindByName = 2,
         FindByPrice = 3, 
         FindBySocketType = 4,

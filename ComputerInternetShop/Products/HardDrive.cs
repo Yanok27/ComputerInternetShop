@@ -21,7 +21,7 @@ namespace ComputerInternetShop.Products
                    $"\n\tPrice: {Price}" +
                    $"\n\tCapacity: {Capacity}" +
                    $"\n\tSpeed: {Speed}" +
-                   $"InterfaceOfConnect: {InterfaceOfConnect}";
+                   $"\n\tInterfaceOfConnect: {InterfaceOfConnect}";
         }
     }
 

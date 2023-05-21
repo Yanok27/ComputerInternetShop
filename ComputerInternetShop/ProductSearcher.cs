@@ -15,7 +15,6 @@ namespace ComputerInternetShop
             _container = container;
         }
 
-        
         public IEnumerable<Product> FindProductByItemNumber(int itemNumber) => 
             _container.Products.Where(product => product.ItemNumber == itemNumber);
 
@@ -100,7 +99,7 @@ namespace ComputerInternetShop
             return result;
         }
 
-        public IEnumerable<Product> FindProductByClockSpeed(int clockSpeed)
+        public IEnumerable<Product> FindProductByClockSpeed(double clockSpeed)
         {
             var result = new List<Product>();
             

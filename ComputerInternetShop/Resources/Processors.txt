@@ -1,5 +1,5 @@
 ItemNumber : 1
-Name : Intel Core I&
+Name : Intel Core I7
 Price : 200
 SocketType : Socket 1151
 CoreCount : 4

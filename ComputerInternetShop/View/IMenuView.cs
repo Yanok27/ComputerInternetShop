@@ -19,10 +19,11 @@ namespace ComputerInternetShop.View
         string GetMemoryType();
         int GetBusSpeed();
         int GetCoreCount();
-        int GetClockSpeed();
+        double GetClockSpeed();
         int GetCapacity();
         int GetFrequency();
         int GetModuleCount();
+        int GetSpeed();
         string GetInterfaceOfConnect();
     }
 }

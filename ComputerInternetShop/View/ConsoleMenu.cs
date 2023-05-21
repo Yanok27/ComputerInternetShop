@@ -65,10 +65,10 @@ namespace ComputerInternetShop.View
             return Convert.ToInt32(Console.ReadLine());
         }
 
-        public int GetClockSpeed()
+        public double GetClockSpeed()
         {
             Console.Write("Введіть тактовій частоті: ");
-            return Convert.ToInt32(Console.ReadLine());
+            return Convert.ToDouble(Console.ReadLine());
         }
 
         public int GetCapacity()
@@ -79,13 +79,19 @@ namespace ComputerInternetShop.View
 
         public int GetFrequency()
         {
-            Console.Write("Введіть тактову частоту: ");
+            Console.Write("Введіть частоту: ");
             return Convert.ToInt32(Console.ReadLine());
         }
 
         public int GetModuleCount()
         {
             Console.Write("Введіть кількості планок: ");
+            return Convert.ToInt32(Console.ReadLine());
+        }
+
+        public int GetSpeed()
+        {
+            Console.Write("Введіть швидкість: ");
             return Convert.ToInt32(Console.ReadLine());
         }
 
@@ -102,16 +108,15 @@ namespace ComputerInternetShop.View
             Console.WriteLine("3) Пошук по ціні");
             Console.WriteLine("4) Пошук по типу скоету");
             Console.WriteLine("5) Пошук по чипсету");
-            Console.WriteLine("6) Пошук по кількості процесорів");
-            Console.WriteLine("7) Пошук по типу оперативної пам'ять");
-            Console.WriteLine("8) Пошук по частоті системної шини");
-            Console.WriteLine("9) Пошук по кількістю ядер");
-            Console.WriteLine("10) Пошук по тактовій частоті");
-            Console.WriteLine("11) Пошук по місткості");
-            Console.WriteLine("12) Пошук по швидкості");
-            Console.WriteLine("13) Пошук по інтерфейсу підключення");
-            Console.WriteLine("14) Пошук по частоті");
-            Console.WriteLine("15) Пошук по кількості планок");
+            Console.WriteLine("6) Пошук по типу оперативної пам'ять");
+            Console.WriteLine("7) Пошук по частоті системної шини");
+            Console.WriteLine("8) Пошук по кількістю ядер");
+            Console.WriteLine("9) Пошук по тактовій частоті");
+            Console.WriteLine("10) Пошук по місткості");
+            Console.WriteLine("11) Пошук по частоті");
+            Console.WriteLine("12) Пошук по кількості планок");
+            Console.WriteLine("13) Пошук по швидкості");
+            Console.WriteLine("14) Пошук по інтерфейсу підключення");
             Console.WriteLine("-1) Для виходу");
         }
 

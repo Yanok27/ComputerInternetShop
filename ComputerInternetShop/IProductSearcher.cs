@@ -13,7 +13,7 @@ namespace ComputerInternetShop
         IEnumerable<Product> FindProductByMemoryType(string memoryType);
         IEnumerable<Product> FindProductByBusSpeed(int busSpeed);
         IEnumerable<Product> FindProductByCoreCount(int coreCount);
-        IEnumerable<Product> FindProductByClockSpeed(int clockSpeed);
+        IEnumerable<Product> FindProductByClockSpeed(double clockSpeed);
         IEnumerable<Product> FindProductByCapacity(int capacity);
         IEnumerable<Product> FindProductByFrequency(int frequency);
         IEnumerable<Product> FindProductByModuleCount(int moduleCount);
