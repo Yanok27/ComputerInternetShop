@@ -7,7 +7,7 @@ namespace ComputerInternetShop.Readers
 {
     public class MemoryReader : IParametersReader
     {
-        private const string PathToFile = "/Users/denys/RiderProjects/ComputerInternetShop/ComputerInternetShop/Resources/Memories.txt";
+        private const string PathToFile = "D:/.net/ComputerInternetShop/ComputerInternetShop/Resources/Memories.txt";
         private readonly List<Dictionary<string, string>> _parameters = new ();
 
         private void InitializeParameters()

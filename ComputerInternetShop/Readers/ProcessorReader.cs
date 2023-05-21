@@ -7,7 +7,7 @@ namespace ComputerInternetShop.Readers
 {
     public class ProcessorReader : IParametersReader
     {
-        private const string PathToFile = "/Users/denys/RiderProjects/ComputerInternetShop/ComputerInternetShop/Resources/Processors.txt";
+        private const string PathToFile = "D:/.net/ComputerInternetShop/ComputerInternetShop/Resources/Processors.txt";
         private readonly List<Dictionary<string, string>> _parameters = new ();
 
         private void InitializeParameters()

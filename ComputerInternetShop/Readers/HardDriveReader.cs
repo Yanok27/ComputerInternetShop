@@ -7,7 +7,7 @@ namespace ComputerInternetShop.Readers
 {
     public class HardDriveReader : IParametersReader
     {
-        private const string PathToFile = "/Users/denys/RiderProjects/ComputerInternetShop/ComputerInternetShop/Resources/HardDrives.txt";
+        private const string PathToFile = "D:/.net/ComputerInternetShop/ComputerInternetShop/Resources/HardDrives.txt";
         private readonly List<Dictionary<string, string>> _parameters = new ();
 
         private void InitializeParameters()

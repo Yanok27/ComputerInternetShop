@@ -7,7 +7,7 @@ namespace ComputerInternetShop.Readers
 {
     public class MotherBoardReader : IParametersReader
     {
-        private const string PathToFile = "/Users/denys/RiderProjects/ComputerInternetShop/ComputerInternetShop/Resources/MotherBoard.txt";
+        private const string PathToFile = "D:/.net/ComputerInternetShop/ComputerInternetShop/Resources/MotherBoard.txt";
         private readonly List<Dictionary<string, string>> _parameters = new ();
 
         private void InitializeParameters()
